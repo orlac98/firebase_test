@@ -10,13 +10,13 @@ import {
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
-import {AuthContext} from '../navigation/AuthProvider';
+// import {AuthContext} from '../navigation/AuthStack';
 
 const LoginScreen = ({navigation}) => {
    const [email, setEmail] = useState();
    const [password, setPassword] = useState();
 
-   const {login} = useContext(AuthContext);
+//    const {login} = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
@@ -46,14 +46,15 @@ const LoginScreen = ({navigation}) => {
 
       <FormButton
         buttonTitle="Sign In"
-        onPress={() => login(email, password)}
+onPress={() => alert('Sign in clicked')}
+//         onPress={() => login(email, password)}
       />
 
       <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
         <Text style={styles.navButtonText}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      {Platform.OS === 'android' ? (
+//       {Platform.OS === 'android' ? (
         <View>
             <SocialButton
             buttonTitle="Sign In with Facebook"
@@ -71,7 +72,7 @@ const LoginScreen = ({navigation}) => {
             onPress={() => googleLogin()}
           />
         </View>
-      ) : null}
+//       ) : null}
 
       <TouchableOpacity
         style={styles.forgotButton}
